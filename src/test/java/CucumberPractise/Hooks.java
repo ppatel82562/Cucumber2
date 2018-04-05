@@ -8,16 +8,16 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import java.util.concurrent.TimeUnit;
 
 
-public class Hooks extends BasePage {
+public class Hooks extends Utils {
+    Browser_Factory browser_factory =new Browser_Factory();
+    Nop_Commerce nop_commerce =new Nop_Commerce();
 
 @Before
-public void openBrowser(){
-    System.setProperty("webdriver.gecko.driver","src\\Resources\\Driver\\geckodriver.exe");
-    driver = new FirefoxDriver();
-    driver.get("http://opensource.demo.orangehrmlive.com/");
-//    driver.manage().deleteAllCookies();
+public void set_up_Browser(){
+    browser_factory.selectBrowser();
+    nop_commerce.getUrl();
+    driver.manage().deleteAllCookies();
 
-  //driver.get("http://demo.nopcommerce.com/");
     driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
     driver.manage().window().maximize();
 }

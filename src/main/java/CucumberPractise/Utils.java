@@ -12,7 +12,7 @@ import java.util.Date;
 
 import static CucumberPractise.BasePage.driver;
 
-public class Utils {
+public class Utils extends BasePage {
 
     public static void clickElement (By by){
 
